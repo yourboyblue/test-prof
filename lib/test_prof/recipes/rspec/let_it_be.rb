@@ -155,6 +155,11 @@ module TestProf
       class << self
         # Rerucsively freezes the object to detect modifications
         def deep_freeze(record)
+          warn "="*80
+          warn "FREEZING"
+          warn caller
+          warn "FREEZING #{record}"
+          warn "="*80
           return if record.frozen?
           return if Stoplist.stop?(record)
 
